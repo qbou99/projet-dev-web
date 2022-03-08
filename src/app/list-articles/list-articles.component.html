@@ -1,15 +1,15 @@
 <section [ngSwitch]="view">
   <section *ngSwitchCase="'card'">
-    <carte [employe]="employe" (personDelete)="delete($event)" (personUpdate)="update($event)" *ngFor="let employe of personnel" ></carte>
+    <carte [article]="article" (articleDelete)="delete($event)" (articleUpdate)="update($event)" *ngFor="let article of articles" ></carte>
   </section>
 
   <section *ngSwitchCase="'list'">
     <mat-list>
-      <mat-list-item *ngFor="let employe of personnel" class="mat-whiteframe-2dp mat-card">
-        <img mat-list-avatar src="{{ employe.photo }}" alt="Avatar de l'employé"/>
-        <h3 mat-line> <span badgeChef [employe]="employe!"></span> {{ employe.prenom }} {{ employe.nom }} </h3>
+      <mat-list-item *ngFor="let article of articles" class="mat-whiteframe-2dp mat-card">
+        <img mat-list-avatar src="{{ article.photo }}" alt="Avatar de l'article"/>
+        <h3 mat-line> <span badgeChef [article]="article!"></span> {{ article.prenom }} {{ article.nom }} </h3>
         <p mat-line>
-          <span> {{ employe.email }} </span> — <span>{{ employe.telephone }} </span>
+          <span> {{ article.email }} </span> — <span>{{ article.telephone }} </span>
         </p>
       </mat-list-item>
     </mat-list>

@@ -1,5 +1,5 @@
 <mat-card class="mat-whiteframe-2dp">
-  <mat-card-title> <span>➕ Créer un(e) employé(e)</span> </mat-card-title>
+  <mat-card-title> <span>➕ Créer un(e) article(e)</span> </mat-card-title>
 
   <mat-card-content>
     <form novalidate [formGroup]="form">
@@ -28,7 +28,7 @@
           <mat-radio-button value="M" class="radio-button" >Homme</mat-radio-button>
           <mat-radio-button value="F" class="radio-button" >Femme</mat-radio-button>
           <mat-radio-button value="A" class="radio-button" >Autre</mat-radio-button>
-          <mat-error *ngIf="form.get('sexe')!.dirty && form.get('sexe')!.errors?.['required']"><br />Vous devez renseigner le sexe de la personne</mat-error>
+          <mat-error *ngIf="form.get('sexe')!.dirty && form.get('sexe')!.errors?.['required']"><br />Vous devez renseigner le sexe de la articlene</mat-error>
         </mat-radio-group>
       </p>
 
@@ -51,8 +51,8 @@
       <p>
         <mat-form-field class="chip-list" >
           <mat-label><mat-icon>work</mat-icon> Fonctions :</mat-label>
-          <mat-chip-list #chipList aria-label="Intitulés des fonctions de l'employés">
-            <mat-chip *ngFor="let titre of employeModel.titres" (removed)="removeChipset(titre)" >
+          <mat-chip-list #chipList aria-label="Intitulés des fonctions de l'articles">
+            <mat-chip *ngFor="let titre of articleModel.titres" (removed)="removeChipset(titre)" >
               {{titre}}
               <button matChipRemove>
                 <mat-icon>cancel</mat-icon>
@@ -67,15 +67,15 @@
       </p>
 
       <input #fileInput type="file" (change)="onFileSelected($event)"  name="photo" style="display: none;" accept=".png,.jpg" />
-      <div *ngIf="employeModel.photo" >
-        <img width="100" src="{{employeModel.photo}}" alt="Photo de l'employé" /> <br>
-        <button mat-flat-button color="warn" (click)="employeModel.photo = null;">
+      <div *ngIf="articleModel.photo" >
+        <img width="100" src="{{articleModel.photo}}" alt="Photo de l'article" /> <br>
+        <button mat-flat-button color="warn" (click)="articleModel.photo = null;">
           <mat-icon>
             cancel
           </mat-icon>
         </button>
       </div>
-      <div class="file-upload" *ngIf="!employeModel.photo">
+      <div class="file-upload" *ngIf="!articleModel.photo">
         <button type="button" (click)="fileInput.click()" mat-fab>
           <mat-icon>
             image

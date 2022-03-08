@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Person} from "../../model/Person";
+import {Article} from "../../model/Article";
 
 @Component({
   selector: 'carte',
@@ -8,11 +8,11 @@ import {Person} from "../../model/Person";
 })
 export class CarteComponent {
 
-  @Input() employe: Person | undefined;
+  @Input() article: Article | undefined;
 
-  @Output('personDelete') delete$: EventEmitter<any> = new EventEmitter();
+  @Output('articleDelete') delete$: EventEmitter<any> = new EventEmitter();
 
-  @Output('personUpdate') update$: EventEmitter<any> = new EventEmitter();
+  @Output('articleUpdate') update$: EventEmitter<any> = new EventEmitter();
 
 
   constructor() {
@@ -20,10 +20,10 @@ export class CarteComponent {
   }
 
   delete() {
-    this.delete$.emit(this.employe);
+    this.delete$.emit(this.article);
   }
 
   update() {
-    this.update$.emit(this.employe);
+    this.update$.emit(this.article);
   }
 }

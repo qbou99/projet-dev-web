@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {Person} from "../model/Person";
-import {ListPersonnelService} from "../partage/service/list-personnel.service";
+import {Article} from "../model/Article";
+import {ListArticlesService} from "../partage/service/list-articles.service";
 
 @Component({
   selector: 'accueil',
@@ -9,10 +9,10 @@ import {ListPersonnelService} from "../partage/service/list-personnel.service";
 })
 export class AccueilComponent {
 
-  employe: Person = {};
+  article: Article = {};
 
 
-  constructor(private readonly listPersonnelService:ListPersonnelService) {
+  constructor(private readonly listArticlesService:ListArticlesService) {
     this.random();
   }
 
@@ -21,13 +21,13 @@ export class AccueilComponent {
    * Returns random people
    */
   random() {
-    this.listPersonnelService.fetchRandom().subscribe(employe => {
-      this.employe = employe;
+    this.listArticlesService.fetchRandom().subscribe(article => {
+      this.article = article;
     });
   }
 
-  delete(person: Person){
-    this.listPersonnelService.delete(person.id!).subscribe(() => {
+  delete(article: Article){
+    this.listArticlesService.delete(article.id!).subscribe(() => {
       this.random();
     });
   }

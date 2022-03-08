@@ -24,7 +24,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import {CarteComponent} from "./partage/carte/carte.component";
 import {HeaderComponent} from './header/header.component';
 import {DrawerComponent} from './drawer/drawer.component';
-import {ListPersonnelComponent} from './list-personnel/list-personnel.component';
+import {ListArticlesComponent} from './list-articles/list-articles.component';
 import {GraphComponent} from './graph/graph.component';
 import {ContactComponent} from './contact/contact.component';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
@@ -33,8 +33,8 @@ import {LangueBoutonComponent} from "./langue-bouton/langue-bouton.component";
 import {MatMenuModule} from "@angular/material/menu";
 import {BadgeChefDirective} from "./partage/badgeChef/badge-chef.directive";
 import {FormulaireComponent} from "./partage/formulaire/formulaire.component";
-import {EditionComponent} from "./list-personnel/edition/edition.component";
-import {AjoutPopupComponent} from "./list-personnel/ajout-popup/ajout-popup.component";
+import {EditionComponent} from "./list-articles/edition/edition.component";
+import {AjoutPopupComponent} from "./list-articles/ajout-popup/ajout-popup.component";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -48,7 +48,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         CarteComponent,
         HeaderComponent,
         DrawerComponent,
-        ListPersonnelComponent,
+        ListArticlesComponent,
         GraphComponent,
         ContactComponent,
         LangueBoutonComponent,

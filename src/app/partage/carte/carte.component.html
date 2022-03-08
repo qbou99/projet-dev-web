@@ -1,11 +1,11 @@
 <mat-card class="carteCustom">
   <mat-card-header>
-    <img *ngIf="employe?.photo" mat-card-avatar [src]="employe?.photo" alt="Avatar de l'employé"/>
-    <mat-card-title> <span badgeChef [employe]="employe!"></span> {{employe?.nom | uppercase}} {{employe?.prenom}} </mat-card-title>
+    <img *ngIf="article?.photo" mat-card-avatar [src]="article?.photo" alt="Avatar de l'article"/>
+    <mat-card-title> <span badgeChef [article]="article!"></span> {{article?.nom | uppercase}} {{article?.prenom}} </mat-card-title>
     <mat-card-subtitle>
       <mat-card-content>
         <mat-chip-list>
-          <mat-chip color="primary" *ngFor="let titre of employe?.titres">
+          <mat-chip color="primary" *ngFor="let titre of article?.titres">
             <mat-icon class="small">
               work_outline
             </mat-icon>
@@ -19,20 +19,20 @@
     <mat-card-subtitle class="info">
       <mat-icon>email</mat-icon>
       <a
-        href="mailto:{{employe?.email}}"
+        href="mailto:{{article?.email}}"
         title="Send an email to"
         class="truncate"
-      >{{employe?.email}}</a
+      >{{article?.email}}</a
       >
     </mat-card-subtitle>
     <mat-card-subtitle class="info">
       <mat-icon>phone</mat-icon>
-      <a href="tel:{{employe?.telephone}}" title="Call">{{employe?.telephone}}</a>
+      <a href="tel:{{article?.telephone}}" title="Call">{{article?.telephone}}</a>
     </mat-card-subtitle>
   </mat-card-content>
 
   <mat-card-actions align="end">
-    <button mat-mini-fab aria-label="Editer" color="accent" [routerLink]="['/edit', employe?.id]">
+    <button mat-mini-fab aria-label="Editer" color="accent" [routerLink]="['/edit', article?.id]">
       <mat-icon>edit</mat-icon>
     </button>
     <button mat-mini-fab aria-label="Supprimer" color="warn" (click)="delete()">

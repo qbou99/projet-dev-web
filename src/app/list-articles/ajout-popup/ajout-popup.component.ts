@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {MatDialogRef} from "@angular/material/dialog";
-import {Person} from "../../model/Person";
+import {Article} from "../../model/Article";
 
-export type PopupAction = Person & {mode: string};
+export type PopupAction = Article & {mode: string};
 
 @Component({
   selector: 'app-ajout-popup',
@@ -13,7 +13,7 @@ export class AjoutPopupComponent {
 
   constructor(public dialogRef: MatDialogRef<AjoutPopupComponent>) {}
 
-  closeDialog(result: Person & {mode?: string} | null = null) {
+  closeDialog(result: Article & {mode?: string} | null = null) {
     this.dialogRef.close(result);
   }
 
@@ -21,12 +21,12 @@ export class AjoutPopupComponent {
     this.closeDialog();
   }
 
-  onCreate(person: Person) {
-    this.closeDialog({...person, mode: 'create'});
+  onCreate(article: Article) {
+    this.closeDialog({...article, mode: 'create'});
   }
 
-  onUpdate(person: Person) {
-    this.closeDialog({...person, mode: 'update'});
+  onUpdate(article: Article) {
+    this.closeDialog({...article, mode: 'update'});
   }
 
 }

@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {AccueilComponent} from "./accueil/accueil.component";
-import {ListPersonnelComponent} from "./list-personnel/list-personnel.component";
+import {ListArticlesComponent} from "./list-articles/list-articles.component";
 import {GraphComponent} from "./graph/graph.component";
 import {ContactComponent} from "./contact/contact.component";
-import {EditionComponent} from "./list-personnel/edition/edition.component";
-import {EmployeDetailResolverResolver} from "./partage/employe-detail-resolver/employe-detail-resolver.resolver";
+import {EditionComponent} from "./list-articles/edition/edition.component";
+import {ArticleDetailResolverResolver} from "./partage/article-detail-resolver/article-detail-resolver.resolver";
 
 const routes: Routes = [
   { path: '', redirectTo: 'accueil', pathMatch: 'full' },
   {path:'accueil', component: AccueilComponent},
-  {path:'listPersonnel', component: ListPersonnelComponent},
-  { path: 'edit/:id', component: EditionComponent, resolve: { employe: EmployeDetailResolverResolver } },
+  {path:'listArticles', component: ListArticlesComponent},
+  { path: 'edit/:id', component: EditionComponent, resolve: { article: ArticleDetailResolverResolver } },
   {path:'graph', component: GraphComponent},
   {path:'contact', component: ContactComponent}
 ];

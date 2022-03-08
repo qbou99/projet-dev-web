@@ -1,9 +1,9 @@
-<section  *ngIf="employe; else noEmploye">
-  <carte [employe]="employe" (personDelete)="delete($event)"></carte>
+<section  *ngIf="article; else noArticle">
+  <carte [article]="article" (articleDelete)="delete($event)"></carte>
 </section>
 
-<ng-template #noEmploye>
-  <span>Aucuns employés actuellement en base</span>
+<ng-template #noArticle>
+  <span>Aucuns articles actuellement en base</span>
 </ng-template>
 
 <button id="refresh" mat-fab color="primary" (click)="random()">
