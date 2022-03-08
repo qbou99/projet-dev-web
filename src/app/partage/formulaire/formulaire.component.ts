@@ -24,21 +24,18 @@ export class FormulaireComponent implements OnInit {
     this.cancelEvent$ = new EventEmitter();
     this.form = FormulaireComponent.buildForm();
     this.articleModel = {
-      titres: []
+      types: []
     };
   }
 
   ngOnInit() {
     debugger;
     this.form.patchValue({
-      id: this.articleModel.id,
-      nom: this.articleModel.nom,
-      prenom: this.articleModel.prenom,
-      email: this.articleModel.email,
-      titres: this.articleModel.titres || [],
-      sexe: this.articleModel.sexe,
-      photo: this.articleModel.photo,
-      telephone: this.articleModel.telephone
+      _id: this.articleModel._id,
+      name: this.articleModel.name,
+      description: this.articleModel.description,
+      types: this.articleModel.types || [],
+      image: this.articleModel.image,
     });
   }
 
@@ -47,7 +44,7 @@ export class FormulaireComponent implements OnInit {
   }
 
   submit(article: Article) { //Formulaire
-    article.photo = this.articleModel.photo;
+    article.image = this.articleModel.image;
     this.submitEvent$.emit(article);
   }
 
@@ -55,14 +52,14 @@ export class FormulaireComponent implements OnInit {
   addChipset(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
     if (value) {
-      this.articleModel.titres!.push(value);
+      this.articleModel.types!.push(value);
     }
     event.chipInput!.clear();
   }
 
-  removeChipset(titre: any): void {
-    const index = this.articleModel.titres!.indexOf(titre);
-    this.articleModel.titres!.splice(index, 1);
+  removeChipset(type: any): void {
+    const index = this.articleModel.types!.indexOf(type);
+    this.articleModel.types!.splice(index, 1);
   }
 
   onFileSelected(event:Event | null) {
@@ -73,7 +70,7 @@ export class FormulaireComponent implements OnInit {
         let reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = (_event) => {
-          this.articleModel.photo = reader.result;
+          this.articleModel.image = reader.result;
         }
     }
   }
@@ -86,13 +83,10 @@ export class FormulaireComponent implements OnInit {
    */
   private static buildForm(): FormGroup {
     return new FormGroup({
-      id: new FormControl(''),
-      prenom: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
-      nom: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
-      email: new FormControl('', Validators.required),
-      titres: new FormControl(''),
-      sexe: new FormControl(''),
-      telephone: new FormControl('', Validators.compose([Validators.required, Validators.pattern('\\d{10}')])),
+      _id: new FormControl(''),
+      description: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
+      name: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
+      types: new FormControl(''),
     });
   }
 

@@ -6,11 +6,8 @@
   <section *ngSwitchCase="'list'">
     <mat-list>
       <mat-list-item *ngFor="let article of articles" class="mat-whiteframe-2dp mat-card">
-        <img mat-list-avatar src="{{ article.photo }}" alt="Avatar de l'article"/>
-        <h3 mat-line> <span badgeChef [article]="article!"></span> {{ article.prenom }} {{ article.nom }} </h3>
-        <p mat-line>
-          <span> {{ article.email }} </span> — <span>{{ article.telephone }} </span>
-        </p>
+        <img mat-list-avatar src="{{ article.image }}" alt="Avatar de l'article"/>
+        <h3 mat-line> {{ article.description }} {{ article.name }} </h3>
       </mat-list-item>
     </mat-list>
   </section>

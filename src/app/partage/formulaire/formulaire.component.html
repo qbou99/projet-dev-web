@@ -1,59 +1,33 @@
 <mat-card class="mat-whiteframe-2dp">
-  <mat-card-title> <span>➕ Créer un(e) article(e)</span> </mat-card-title>
+  <mat-card-title> <span>➕ Créer un article</span> </mat-card-title>
 
   <mat-card-content>
     <form novalidate [formGroup]="form">
 
-      <p [class.errors]="form.get('nom')!.invalid && (form.get('nom')!.dirty || form.get('nom')!.touched)">
+      <p [class.errors]="form.get('name')!.invalid && (form.get('name')!.dirty || form.get('name')!.touched)">
         <mat-form-field class="name" >
           <mat-label>Nom</mat-label>
-          <input formControlName="nom" name="nom" matInput placeholder="Ex: De LaMarre" required/>
-          <mat-error *ngIf="form.get('nom')!.dirty && form.get('nom')!.errors?.['required']"><br />Le nom est obligatoire</mat-error>
-          <mat-error *ngIf="form.get('nom')!.dirty && form.get('nom')!.errors?.['minlength']"><br />Le nom doit avoir au moins 2 caractères </mat-error>
+          <input formControlName="name" name="name" matInput placeholder="Ex: De LaMarre" required/>
+          <mat-error *ngIf="form.get('name')!.dirty && form.get('name')!.errors?.['required']"><br />Le nom est obligatoire</mat-error>
+          <mat-error *ngIf="form.get('name')!.dirty && form.get('name')!.errors?.['minlength']"><br />Le nom doit avoir au moins 2 caractères </mat-error>
         </mat-form-field>
         <mat-form-field class="name" >
-          <mat-label>Prénom</mat-label>
-          <input formControlName="prenom"  matInput placeholder="Ex: Josephine" name="prenom" required/>
-          <mat-error *ngIf="form.get('prenom')!.dirty && form.get('prenom')!.errors?.['required']"><br />Le prenom est obligatoire</mat-error>
-          <mat-error *ngIf="form.get('prenom')!.dirty && form.get('prenom')!.errors?.['minlength']"><br />Le prenom doit avoir au moins 2 caractères </mat-error>
+          <mat-label>Description</mat-label>
+          <input formControlName="description"  matInput placeholder="Ex: Josephine" name="description" required/>
+          <mat-error *ngIf="form.get('description')!.dirty && form.get('description')!.errors?.['required']"><br />La description est obligatoire</mat-error>
+          <mat-error *ngIf="form.get('description')!.dirty && form.get('description')!.errors?.['minlength']"><br />La description doit avoir au moins 2 caractères </mat-error>
         </mat-form-field>
 
 
 
-      </p>
-
-      <p [class.errors]="form.get('sexe')!.invalid && (form.get('sexe')!.dirty || form.get('sexe')!.touched)">
-        <label>Sexe *</label>
-        <mat-radio-group aria-label="Sexe" class="radio-group" name="sexe" formControlName="sexe" required>
-          <mat-radio-button value="M" class="radio-button" >Homme</mat-radio-button>
-          <mat-radio-button value="F" class="radio-button" >Femme</mat-radio-button>
-          <mat-radio-button value="A" class="radio-button" >Autre</mat-radio-button>
-          <mat-error *ngIf="form.get('sexe')!.dirty && form.get('sexe')!.errors?.['required']"><br />Vous devez renseigner le sexe de la articlene</mat-error>
-        </mat-radio-group>
-      </p>
-
-      <p>
-        <mat-form-field>
-          <mat-label><mat-icon>email</mat-icon> Email</mat-label>
-          <input matInput placeholder="Ex: mimie.mathy@gmail.com" style="width:100%" name="email" formControlName="email" required />
-          <mat-error *ngIf="form.get('email')!.dirty && form.get('email')!.errors?.['required']"><br />L'email est obligatoire</mat-error>
-        </mat-form-field>
-      </p>
-
-      <p [class.errors]="form.get('telephone')!.invalid && (form.get('telephone')!.dirty || form.get('telephone')!.touched)">
-        <mat-form-field>
-          <mat-label><mat-icon>phone</mat-icon> Téléphone</mat-label>
-          <input  matInput placeholder="Ex: 0612345678" style="width:100%" name="telephone" formControlName="telephone" />
-          <mat-error *ngIf="form.get('telephone')!.dirty && form.get('telephone')!.errors?.['pattern']"><br />Le numéro de téléphone doit comporter 10 chiffres</mat-error>
-        </mat-form-field>
       </p>
 
       <p>
         <mat-form-field class="chip-list" >
-          <mat-label><mat-icon>work</mat-icon> Fonctions :</mat-label>
-          <mat-chip-list #chipList aria-label="Intitulés des fonctions de l'articles">
-            <mat-chip *ngFor="let titre of articleModel.titres" (removed)="removeChipset(titre)" >
-              {{titre}}
+          <mat-label><mat-icon>work</mat-icon> Types :</mat-label>
+          <mat-chip-list #chipList aria-label="Intitulés des types de l'article">
+            <mat-chip *ngFor="let type of articleModel.types" (removed)="removeChipset(type)" >
+              {{type}}
               <button matChipRemove>
                 <mat-icon>cancel</mat-icon>
               </button>
@@ -66,16 +40,16 @@
         </mat-form-field>
       </p>
 
-      <input #fileInput type="file" (change)="onFileSelected($event)"  name="photo" style="display: none;" accept=".png,.jpg" />
-      <div *ngIf="articleModel.photo" >
-        <img width="100" src="{{articleModel.photo}}" alt="Photo de l'article" /> <br>
-        <button mat-flat-button color="warn" (click)="articleModel.photo = null;">
+      <input #fileInput type="file" (change)="onFileSelected($event)"  name="image" style="display: none;" accept=".png,.jpg" />
+      <div *ngIf="articleModel.image" >
+        <img width="100" src="{{articleModel.image}}" alt="image de l'article" /> <br>
+        <button mat-flat-button color="warn" (click)="articleModel.image = null;">
           <mat-icon>
             cancel
           </mat-icon>
         </button>
       </div>
-      <div class="file-upload" *ngIf="!articleModel.photo">
+      <div class="file-upload" *ngIf="!articleModel.image">
         <button type="button" (click)="fileInput.click()" mat-fab>
           <mat-icon>
             image

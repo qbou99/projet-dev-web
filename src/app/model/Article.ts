@@ -1,12 +1,7 @@
 export interface Article {
-  id?: string;
-  nom?: string;
-  prenom?: string;
-  photo?: string | ArrayBuffer | null;
-  age?: string;
-  sexe?: string;
-  telephone?: string;
-  email?: string;
-  titres?: string[];
-  chefId?: string | null;
+  _id?: string;
+  name?: string;
+  description?: string;
+  image?: string | ArrayBuffer | null;
+  types?: string[];
 }

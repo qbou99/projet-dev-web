@@ -51,19 +51,19 @@ export class ListArticlesService {
     return this.http.get<Article>(this.urlServer.articleAleatoire);
   }
 
-  delete(id: string): Observable<any> {
-    return this.http.delete(this.urlServer.unArticle.replace(':id', id));
+  delete(_id: string): Observable<any> {
+    return this.http.delete(this.urlServer.unArticle.replace(':id', _id));
   }
 
   create(article: Article): Observable<Article> {
     return this.http.post<Article>(this.urlServer.tousLesArticles, article);
   }
 
-  fetchOne(id: string): Observable<Article> {
-    return this.http.get<Article>(this.urlServer.unArticle.replace(':id', id));
+  fetchOne(_id: string): Observable<Article> {
+    return this.http.get<Article>(this.urlServer.unArticle.replace(':id', _id));
   }
 
   update(article: Article): Observable<Article> {
-    return this.http.put<Article>(this.urlServer.unArticle.replace(':id', article.id), article);
+    return this.http.put<Article>(this.urlServer.unArticle.replace(':id', article._id), article);
   }
 }

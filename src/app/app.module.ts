@@ -31,7 +31,6 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {LangueBoutonComponent} from "./langue-bouton/langue-bouton.component";
 import {MatMenuModule} from "@angular/material/menu";
-import {BadgeChefDirective} from "./partage/badgeChef/badge-chef.directive";
 import {FormulaireComponent} from "./partage/formulaire/formulaire.component";
 import {EditionComponent} from "./list-articles/edition/edition.component";
 import {AjoutPopupComponent} from "./list-articles/ajout-popup/ajout-popup.component";
@@ -52,7 +51,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         GraphComponent,
         ContactComponent,
         LangueBoutonComponent,
-        BadgeChefDirective,
         FormulaireComponent,
         EditionComponent,
         AjoutPopupComponent

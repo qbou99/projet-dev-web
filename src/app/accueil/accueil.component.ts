@@ -27,7 +27,7 @@ export class AccueilComponent {
   }
 
   delete(article: Article){
-    this.listArticlesService.delete(article.id!).subscribe(() => {
+    this.listArticlesService.delete(article._id!).subscribe(() => {
       this.random();
     });
   }

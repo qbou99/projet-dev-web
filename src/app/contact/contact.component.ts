@@ -8,8 +8,8 @@ import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 export class ContactComponent implements AfterViewInit {
 
 
-  @ViewChild("nom") nom: ElementRef<HTMLElement> | undefined;
-  @ViewChild("prenom") prenom: ElementRef<HTMLElement> | undefined;
+  @ViewChild("name") name: ElementRef<HTMLElement> | undefined;
+  @ViewChild("description") description: ElementRef<HTMLElement> | undefined;
 
   constructor() {
     //Vide
@@ -17,8 +17,8 @@ export class ContactComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.nom!.nativeElement!.innerHTML = "Petitdemange";
-    this.prenom!.nativeElement!.innerHTML = "Marc";
+    this.name!.nativeElement!.innerHTML = "Petitdemange";
+    this.description!.nativeElement!.innerHTML = "Marc";
     //Vide
     }
 

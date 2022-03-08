@@ -1,38 +1,23 @@
 <mat-card class="carteCustom">
   <mat-card-header>
-    <img *ngIf="article?.photo" mat-card-avatar [src]="article?.photo" alt="Avatar de l'article"/>
-    <mat-card-title> <span badgeChef [article]="article!"></span> {{article?.nom | uppercase}} {{article?.prenom}} </mat-card-title>
+    <img *ngIf="article?.image" mat-card-avatar [src]="article?.image" alt="Avatar de l'article"/>
+    <mat-card-title> {{article?.name | uppercase}} {{article?.description}} </mat-card-title>
     <mat-card-subtitle>
       <mat-card-content>
         <mat-chip-list>
-          <mat-chip color="primary" *ngFor="let titre of article?.titres">
+          <mat-chip color="primary" *ngFor="let type of article?.types">
             <mat-icon class="small">
               work_outline
             </mat-icon>
-            {{titre}}
+            {{type}}
           </mat-chip>
         </mat-chip-list>
       </mat-card-content>
     </mat-card-subtitle>
   </mat-card-header>
-  <mat-card-content>
-    <mat-card-subtitle class="info">
-      <mat-icon>email</mat-icon>
-      <a
-        href="mailto:{{article?.email}}"
-        title="Send an email to"
-        class="truncate"
-      >{{article?.email}}</a
-      >
-    </mat-card-subtitle>
-    <mat-card-subtitle class="info">
-      <mat-icon>phone</mat-icon>
-      <a href="tel:{{article?.telephone}}" title="Call">{{article?.telephone}}</a>
-    </mat-card-subtitle>
-  </mat-card-content>
 
   <mat-card-actions align="end">
-    <button mat-mini-fab aria-label="Editer" color="accent" [routerLink]="['/edit', article?.id]">
+    <button mat-mini-fab aria-label="Editer" color="accent" [routerLink]="['/edit', article?._id]">
       <mat-icon>edit</mat-icon>
     </button>
     <button mat-mini-fab aria-label="Supprimer" color="warn" (click)="delete()">
