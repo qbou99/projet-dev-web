@@ -1,7 +1,7 @@
 <mat-card class="carteCustom">
   <mat-card-header>
     <img *ngIf="article?.image" mat-card-avatar [src]="article?.image" alt="Avatar de l'article"/>
-    <mat-card-title> {{article?.name | uppercase}} {{article?.description}} </mat-card-title>
+    <mat-card-title> {{article?.name}} </mat-card-title>
     <mat-card-subtitle>
       <mat-card-content>
         <mat-chip-list>
@@ -12,6 +12,16 @@
       </mat-card-content>
     </mat-card-subtitle>
   </mat-card-header>
+  <mat-card-content>
+    <mat-card-subtitle class="info">
+      <mat-icon></mat-icon>
+      <p>{{article?.price}} €</p>
+    </mat-card-subtitle>
+    <mat-card-subtitle *ngIf="article?.description" class="info">
+      <mat-icon>short_text</mat-icon>
+      <p>{{article?.description}}</p>
+    </mat-card-subtitle>
+  </mat-card-content>
 
   <mat-card-actions align="end">
     <button mat-mini-fab aria-label="Editer" color="accent" [routerLink]="['/edit', article?._id]">
