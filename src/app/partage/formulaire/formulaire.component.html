@@ -7,19 +7,26 @@
       <p [class.errors]="form.get('name')!.invalid && (form.get('name')!.dirty || form.get('name')!.touched)">
         <mat-form-field class="name" >
           <mat-label>Nom</mat-label>
-          <input formControlName="name" name="name" matInput placeholder="Ex: De LaMarre" required/>
+          <input formControlName="name" name="name" matInput placeholder="Ex: Fanta" required/>
           <mat-error *ngIf="form.get('name')!.dirty && form.get('name')!.errors?.['required']"><br />Le nom est obligatoire</mat-error>
           <mat-error *ngIf="form.get('name')!.dirty && form.get('name')!.errors?.['minlength']"><br />Le nom doit avoir au moins 2 caractères </mat-error>
         </mat-form-field>
+      </p>
+      <p>
         <mat-form-field class="name" >
           <mat-label>Description</mat-label>
-          <input formControlName="description"  matInput placeholder="Ex: Josephine" name="description" required/>
-          <mat-error *ngIf="form.get('description')!.dirty && form.get('description')!.errors?.['required']"><br />La description est obligatoire</mat-error>
-          <mat-error *ngIf="form.get('description')!.dirty && form.get('description')!.errors?.['minlength']"><br />La description doit avoir au moins 2 caractères </mat-error>
+          <input formControlName="description"  matInput placeholder="Ex: 33 cl" name="description"/>
         </mat-form-field>
+      </p>
 
-
-
+      <p>
+        <mat-form-field class="name" >
+          <mat-label>Prix (€)</mat-label>
+          <input formControlName="price"  matInput placeholder="Ex: 1" name="price" required/>
+          <mat-error *ngIf="form.get('price')!.dirty && form.get('price')!.errors?.['required']"><br />Le prix est obligatoire</mat-error>
+          <mat-error *ngIf="form.get('price')!.dirty && form.get('price')!.errors?.['min']"><br />Le prix doit être positif</mat-error>
+          <mat-error *ngIf="form.get('price')!.dirty && form.get('price')!.errors?.['pattern']"><br />Le prix être un nombre, avec 2 decimales maximum</mat-error>
+        </mat-form-field>
       </p>
 
       <p>

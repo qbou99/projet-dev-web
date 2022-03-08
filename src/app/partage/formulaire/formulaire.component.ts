@@ -34,6 +34,7 @@ export class FormulaireComponent implements OnInit {
       _id: this.articleModel._id,
       name: this.articleModel.name,
       description: this.articleModel.description,
+      price: this.articleModel.price,
       types: this.articleModel.types || [],
       image: this.articleModel.image,
     });
@@ -84,8 +85,9 @@ export class FormulaireComponent implements OnInit {
   private static buildForm(): FormGroup {
     return new FormGroup({
       _id: new FormControl(''),
-      description: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
+      description: new FormControl(''),
       name: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
+      price: new FormControl('', Validators.compose([Validators.required, Validators.min(0), Validators.pattern('^-?[0-9]\\d*(\\.\\d{1,2})?$')])),
       types: new FormControl(''),
     });
   }
