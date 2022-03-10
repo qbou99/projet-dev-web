@@ -9,7 +9,7 @@ export class ContactComponent implements AfterViewInit {
 
 
   @ViewChild("name") name: ElementRef<HTMLElement> | undefined;
-  @ViewChild("description") description: ElementRef<HTMLElement> | undefined;
+  @ViewChild("adresse") adresse: ElementRef<HTMLElement> | undefined;
 
   constructor() {
     //Vide
@@ -17,9 +17,8 @@ export class ContactComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.name!.nativeElement!.innerHTML = "Petitdemange";
-    this.description!.nativeElement!.innerHTML = "Marc";
-    //Vide
+    this.name!.nativeElement!.innerHTML = "Johann et Quentin";
+    this.adresse!.nativeElement!.innerHTML = "DuoDeChoc@mimfornight.com";
     }
 
 }
