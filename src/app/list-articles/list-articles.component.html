@@ -1,12 +1,13 @@
 <section [ngSwitch]="view">
   <section *ngSwitchCase="'card'">
-    <carte [article]="article" (articleDelete)="delete($event)" (articleUpdate)="update($event)" *ngFor="let article of articles" ></carte>
+    <carte [article]="article" (articleDelete)="delete($event)" (articleUpdate)="update($event)"
+      *ngFor="let article of articles"></carte>
   </section>
 
   <section *ngSwitchCase="'list'">
     <mat-list>
       <mat-list-item *ngFor="let article of articles" class="mat-whiteframe-2dp mat-card">
-        <img mat-list-avatar src="{{ article.image }}" alt="Avatar de l'article"/>
+        <img mat-list-avatar src="{{ article.image }}" alt="Avatar de l'article" />
         <h3 mat-line> <strong>{{ article.name }}</strong> {{ article.price }}€ </h3>
       </mat-list-item>
     </mat-list>
@@ -19,7 +20,7 @@
     <em class="material-icons">add</em>
   </button>
 
-  <button (click)="switchView()" mat-fab color="warn">
+  <button class="buttonSwitch" (click)="switchView()" mat-fab color="warn">
     <em class="material-icons" *ngIf="view === 'card'">list</em>
     <em class="material-icons" *ngIf="view === 'list'">view_stream</em>
   </button>

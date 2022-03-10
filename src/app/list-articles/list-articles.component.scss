@@ -24,6 +24,7 @@ section {
   visibility: hidden;
   color: white;
 }
+
 .dialog-modal.active {
   visibility: visible;
 }
@@ -55,6 +56,11 @@ mat-list-item:hover {
   animation: ease-in 1s all;
 }
 
-.buttons-fab:hover .button-add {
+.buttonSwitch {
+  background-color: rgb(190, 230, 167);
+  color: rgb(128, 53, 128);
+}
 
+.button-add {
+  background-color: rgb(128, 53, 128)
 }

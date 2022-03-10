@@ -1,16 +1,16 @@
-mat-card{
+mat-card {
   width: 600px;
   border-radius: 25px;
-  margin: 1em ;
+  margin: 1em;
 }
 
 mat-card:hover {
   box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14),
-  0 9px 46px 8px rgba(0, 0, 0, 0.12);
+    0 9px 46px 8px rgba(0, 0, 0, 0.12);
   cursor: pointer;
 }
 
-button.mat-mini-fab{
+button.mat-mini-fab {
   margin: 1em;
 }
 
@@ -29,32 +29,40 @@ mat-card-subtitle.info {
 }
 
 
-.info mat-icon + a {
+.info mat-icon+a {
   top: 8px;
   position: relative;
   height: 18px;
   line-height: normal;
 }
 
-.info a  {
+.info a {
   color: #555555;
   text-decoration: none;
   font-weight: 400;
 }
 
-.info a:hover  {
+.info a:hover {
   color: #ff4081;
   font-weight: 500;
   transition: 0.3s ease-in-out;
 }
 
-mat-card-content{
+mat-card-content {
   margin-top: 1em;
   display: flex;
 }
 
-mat-card img{
+mat-card img {
   object-fit: cover;
   max-width: 300px;
   height: 10em;
+}
+
+.buttonDelete {
+  background-color: rgb(128, 53, 128)
+}
+
+.buttonEdit {
+  background-color: rgb(224, 125, 224)
 }
