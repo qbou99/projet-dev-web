@@ -7,7 +7,7 @@
     <mat-list>
       <mat-list-item *ngFor="let article of articles" class="mat-whiteframe-2dp mat-card">
         <img mat-list-avatar src="{{ article.image }}" alt="Avatar de l'article"/>
-        <h3 mat-line> {{ article.description }} {{ article.name }} </h3>
+        <h3 mat-line> <strong>{{ article.name }}</strong> {{ article.price }}€ </h3>
       </mat-list-item>
     </mat-list>
   </section>
