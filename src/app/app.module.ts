@@ -25,11 +25,9 @@ import {CarteComponent} from "./partage/carte/carte.component";
 import {HeaderComponent} from './header/header.component';
 import {DrawerComponent} from './drawer/drawer.component';
 import {ListArticlesComponent} from './list-articles/list-articles.component';
-import {GraphComponent} from './graph/graph.component';
 import {ContactComponent} from './contact/contact.component';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
-import {LangueBoutonComponent} from "./langue-bouton/langue-bouton.component";
 import {MatMenuModule} from "@angular/material/menu";
 import {FormulaireComponent} from "./partage/formulaire/formulaire.component";
 import {EditionComponent} from "./list-articles/edition/edition.component";
@@ -48,9 +46,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         HeaderComponent,
         DrawerComponent,
         ListArticlesComponent,
-        GraphComponent,
         ContactComponent,
-        LangueBoutonComponent,
         FormulaireComponent,
         EditionComponent,
         AjoutPopupComponent

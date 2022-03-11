@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {AccueilComponent} from "./accueil/accueil.component";
 import {ListArticlesComponent} from "./list-articles/list-articles.component";
-import {GraphComponent} from "./graph/graph.component";
 import {ContactComponent} from "./contact/contact.component";
 import {EditionComponent} from "./list-articles/edition/edition.component";
 import {ArticleDetailResolverResolver} from "./partage/article-detail-resolver/article-detail-resolver.resolver";
@@ -12,7 +11,6 @@ const routes: Routes = [
   {path:'accueil', component: AccueilComponent},
   {path:'listArticles', component: ListArticlesComponent},
   { path: 'edit/:id', component: EditionComponent, resolve: { article: ArticleDetailResolverResolver } },
-  {path:'graph', component: GraphComponent},
   {path:'contact', component: ContactComponent}
 ];
 @NgModule({
