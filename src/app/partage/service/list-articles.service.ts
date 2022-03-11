@@ -47,10 +47,6 @@ export class ListArticlesService {
     return this.http.get<Article[]>(this.urlServer.filterByName.replace(':name', name));
   }
 
-  fetchRandom(): Observable<Article> {
-    return this.http.get<Article>(this.urlServer.articleAleatoire);
-  }
-
   delete(_id: string): Observable<any> {
     return this.http.delete(this.urlServer.unArticle.replace(':id', _id));
   }
