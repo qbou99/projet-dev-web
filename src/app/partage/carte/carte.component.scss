@@ -1,5 +1,5 @@
 mat-card {
-  width: 600px;
+  width: 400px;
   border-radius: 25px;
   margin: 1em;
 }
@@ -24,7 +24,6 @@ button.mat-mini-fab {
 
 mat-card-subtitle.info {
   display: flex;
-  //margin-top: -7px;
   height: 20px;
 }
 
@@ -55,7 +54,7 @@ mat-card-content {
 
 mat-card img {
   object-fit: cover;
-  max-width: 300px;
+  max-width: 240px;
   height: 10em;
 }
 
@@ -65,4 +64,9 @@ mat-card img {
 
 .buttonEdit {
   background-color: rgb(224, 125, 224)
+}
+
+mat-card .details {
+  padding-left: 3em;
+  max-width: 160px;
 }
