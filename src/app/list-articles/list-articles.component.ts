@@ -28,8 +28,8 @@ export class ListArticlesComponent implements OnInit {
   }
 
   delete(article: Article) {
-    this.listArticlesService.delete(article._id!).subscribe(articles => {
-      this.articles = articles;
+    this.listArticlesService.delete(article._id!).subscribe(article => {
+      this.articles = this.articles.filter(a => a._id !== article._id);
     });
   }
 
