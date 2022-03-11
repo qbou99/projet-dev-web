@@ -3,11 +3,11 @@ import {Article} from "../model/Article";
 import {ListArticlesService} from "../partage/service/list-articles.service";
 
 @Component({
-  selector: 'accueil',
-  templateUrl: './accueil.component.html',
-  styleUrls: ['./accueil.component.scss']
+  selector: 'random',
+  templateUrl: './random.component.html',
+  styleUrls: ['./random.component.scss']
 })
-export class AccueilComponent {
+export class RandomComponent {
 
   article: Article = {};
 
